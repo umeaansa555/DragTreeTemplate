@@ -32,8 +32,7 @@ namespace DragTree
         public Form1()
         {
             InitializeComponent();
-            reactionLabel.Text = $"{clockTime}";
-            lightTimer.Start();
+            
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -43,6 +42,10 @@ namespace DragTree
             lightTimer.Start();
             
             stopwatch.Start();
+
+            /////
+            reactionLabel.Text = $"{clockTime}";
+            lightTimer.Start();
         }
 
         private void goButton_Click(object sender, EventArgs e)
@@ -125,6 +128,8 @@ namespace DragTree
                     break;
                     }
             }
+
+            lightTimer.Enabled = false;
 
         }
     }
