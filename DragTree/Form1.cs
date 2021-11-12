@@ -39,7 +39,8 @@ namespace DragTree
         private void startButton_Click(object sender, EventArgs e)
         {
             // TODO - start the timer
-            
+            lightTimer.Enabled = true;
+            lightTimer.Start();
             
             stopwatch.Start();
         }
@@ -51,7 +52,7 @@ namespace DragTree
             // TODO - check if the ellapsed time in milliseconds is > 0. 
             if(stopwatch.ElapsedMilliseconds > 0)
             {
-                timeLabel.Text = $"{stopwatch.ElapsedMilliseconds}";
+                timeLabel.Text = stopwatch.ElapsedMilliseconds + "";
             }
             else
             {
