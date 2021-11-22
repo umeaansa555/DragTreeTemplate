@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DragTree 
+namespace DragTree
 {
     public partial class Form1 : Form
     {
         // TODO - create an int variable to track currentRow,
         // TODO - create a Stopwatch object called stopwatch 
-        int currentRow = 1;
+        int currentRow = 0;
         Stopwatch stopwatch = new Stopwatch();
 
         int clockTime = 0;
@@ -26,26 +26,22 @@ namespace DragTree
 
         // TODO - create the tick event for the lightTimer
 
-        
-
 
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void startButton_Click(object sender, EventArgs e)
         {
             // TODO - start the timer
             lightTimer.Enabled = true;
-            lightTimer.Start();
-            
-            stopwatch.Start();
+            // lightTimer.Start();
 
             /////
-            reactionLabel.Text = $"{clockTime}";
-            lightTimer.Start();
+            // reactionLabel.Text = $"{clockTime}";
+            //lightTimer.Start();
         }
 
         private void goButton_Click(object sender, EventArgs e)
@@ -53,7 +49,7 @@ namespace DragTree
             // TODO - stop the stopwatch
             stopwatch.Stop();
             // TODO - check if the ellapsed time in milliseconds is > 0. 
-            if(stopwatch.ElapsedMilliseconds > 0)
+            if (stopwatch.ElapsedMilliseconds > 0)
             {
                 timeLabel.Text = stopwatch.ElapsedMilliseconds + "";
             }
@@ -72,16 +68,14 @@ namespace DragTree
             // TODO - reset the stopwatch
             stopwatch.Reset();
             // TODO - put rows 1-3 colours back to DimGray and row 4 back to DarkOliveGreen
-            row1col1.ForeColor = Color.DimGray;
-            row1col2.ForeColor = Color.DimGray;
-            row2col1.ForeColor = Color.DimGray;
-            row2col2.ForeColor = Color.DimGray;
-            row3col1.ForeColor = Color.DimGray;
-            row3col2.ForeColor = Color.DimGray;
-            row4col1.ForeColor = Color.DarkOliveGreen;
-            row4col2.ForeColor = Color.DarkOliveGreen;
-
-
+            row1col1.BackColor = Color.DimGray;
+            row1col2.BackColor = Color.DimGray;
+            row2col1.BackColor = Color.DimGray;
+            row2col2.BackColor = Color.DimGray;
+            row3col1.BackColor = Color.DimGray;
+            row3col2.BackColor = Color.DimGray;
+            row4col1.BackColor = Color.DarkOliveGreen;
+            row4col2.BackColor = Color.DarkOliveGreen;
 
 
             // TODO - reset row value and timeLabel text
@@ -104,33 +98,34 @@ namespace DragTree
             switch (currentRow)
             {
                 case 1:
-                    {
-                        row1col1.ForeColor = Color.Gold;
-                        row1col2.ForeColor = Color.Gold;
-                        break;
-                    }
-                case 2:
-                    {
-                        row2col1.ForeColor = Color.Gold;
-                        row2col2.ForeColor = Color.Gold;
-                        break;
-                    }
-                case 3:
-                    {
-                        row3col1.ForeColor = Color.Gold;
-                        row3col2.ForeColor = Color.Gold;
-                        break;
-                    }
-                case 4:
-                    {
-                        row4col1.ForeColor = Color.Green;
-                        row4col2.ForeColor = Color.Green;
+
+                    row1col1.BackColor = Color.Gold;
+                    row1col2.BackColor = Color.Gold;
                     break;
-                    }
+
+                case 2:
+
+                    row2col1.BackColor = Color.Gold;
+                    row2col2.BackColor = Color.Gold;
+                    break;
+
+                case 3:
+
+                    row3col1.BackColor = Color.Gold;
+                    row3col2.BackColor = Color.Gold;
+                    break;
+
+                case 4:
+
+                    row4col1.BackColor = Color.Green;
+                    row4col2.BackColor = Color.Green;
+                    lightTimer.Enabled = false;
+                    //start a stopwatch
+                    stopwatch.Start();
+                    break;
+
             }
-
-            lightTimer.Enabled = false;
-
+            Refresh();
         }
     }
 }

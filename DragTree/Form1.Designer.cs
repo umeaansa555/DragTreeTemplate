@@ -177,7 +177,6 @@
             // 
             // lightTimer
             // 
-            this.lightTimer.Enabled = true;
             this.lightTimer.Interval = 400;
             this.lightTimer.Tick += new System.EventHandler(this.lightTimer_Tick);
             // 
@@ -225,7 +224,7 @@
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label reactionLabel;
-        private System.Windows.Forms.Timer lightTimer;
+        public System.Windows.Forms.Timer lightTimer;
     }
 }
 
